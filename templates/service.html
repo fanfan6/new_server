@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{%load staticfiles%}
+
+<<<<<<< HEAD
+=======
+{% block nav %}
+    <li class="active">
+        <a href="/info/search">
+            <i class="fa fa-search-minus"></i> <span>查询服务</span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="/info/service">
+            <i class="fa fa-search-minus"></i> <span>报告服务</span>
+        </a>
+    </li>
+{% endblock %}
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    查询表单
+                </header>
+                <div class="panel-body">
+                  <form class="form-inline" role="form">
+                      <div class="form-group">
+                          <label class="sr-only" for="id">身份证号</label>
+                          <input type="text" class="form-control" id="id" placeholder="身份证号">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="phone">手机号</label>
+                          <input type="text" class="form-control" id="phone" placeholder="手机号">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="name">姓名</label>
+                          <input type="text" class="form-control" id="name" placeholder="姓名">
+                      </div>
+                      <div class="form-group">
+                          <label class="sr-only" for="service">服务</label>
+                          <select class="form-control" id="service" >
+<<<<<<< HEAD
+                              <option value="S19">S19</option>
+                              <option value="S03">S03</option>
+=======
+                              <option>S02</option>
+                              <option>S03</option>
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+                          </select>
+                      </div>
+
+                      <button type="submit" class="btn btn-success">搜索</button>
+                  </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+<<<<<<< HEAD
+{% if res %}
+=======
+
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel">
+                <header class="panel-heading">
+                    查询结果
+                </header>
+                <div class="panel-body table-responsive">
+                    <table class="table table-hover">
+                        <tr>
+                            <th>姓名</th>
+                            <th>身份证号</th>
+                            <th>手机号</th>
+                            <th>报告</th>
+                        </tr>
+<<<<<<< HEAD
+                        {% for each in res %}
+=======
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+                        <tr>
+                            <td>凡凡</td>
+                            <td>41×××××</td>
+                            <td>137××××××</td>
+<<<<<<< HEAD
+                            <td id="tree"><a href="/info/100264151546889250962">查看报告</a></td>
+                        </tr>
+                        {% endfor %}
+=======
+                            <td id="tree"><a href="/info/report/100264151546889250962">查看报告</a></td>
+                        </tr>
+
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<<<<<<< HEAD
+{% endif %}
+=======
+>>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
+{% endblock %}
+
