@@ -17,14 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-<<<<<<< HEAD
-#    url(r'^/report/admin/', admin.site.urls),
-#    url(r'^/report/info/', include('report_info.urls')),
-#    url(r'^/report/', include('login.urls')),
     url(r'^admin', admin.site.urls),
-=======
-    url(r'^admin/', admin.site.urls),
->>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
-    url(r'^info/', include('report_info.urls')),
     url(r'', include('login.urls')),
 ]

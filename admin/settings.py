@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'bootstrap3',
-    'report_info',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -85,17 +84,10 @@ WSGI_APPLICATION = 'admin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-<<<<<<< HEAD
-        'NAME': 'test',
-        'USER': 'offline',
-        'PASSWORD': 'offline@0424',
-        'HOST': '10.66.227.107',
-=======
         'NAME': 'online',
         'USER': 'root',
         'PASSWORD': 'mysql',
         'HOST': '127.0.0.1',
->>>>>>> 710c2c4130860b16d58fd9df0822ab73623f8a44
         'PORT': '3306',
     }
 }
@@ -123,7 +115,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/fanxinyu/tianqi_server/static/admin'
+STATIC_ROOT = os.path.join(STATIC_URL, '/admin')
 
 LOGIN_URL = '/login/'
 
