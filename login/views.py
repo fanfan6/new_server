@@ -16,7 +16,7 @@ from login import models
 @login_required
 def index(request):
     print 1
-    return render(request, 'search.html', {})
+    return render(request, 'login.html', {})
 
 
 class LoginView(View):
