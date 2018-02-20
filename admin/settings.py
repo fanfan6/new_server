@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'login',
     'bootstrap3',
     'search_info',
+    'search_count',
 ]
 
 MIDDLEWARE_CLASSES = [
