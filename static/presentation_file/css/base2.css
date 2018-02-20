@@ -1,0 +1,19 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+#download{
+    position: absolute;
+    right: 100px;
+    top: 5%;
+    width: 100px;
+    height: 40px;
+    background-color: #2ea8e5;
+}
+.title_name{
+    padding-bottom: 15px;
+}
+.title_other{
+    font-size: 1.2em;
+    padding-bottom: 12px;
+}

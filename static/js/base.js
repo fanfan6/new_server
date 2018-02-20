@@ -1,14 +1,15 @@
 $(document).ready(function () {
+
     var nowURL = window.location.pathname;
-    if(nowURL === '/info/search') {
+    if(nowURL === '/report/search') {
         $(document).find('.UL2').hide();
         $(document).find(".table1").addClass('cur').siblings().removeClass('cur');
     }
-    if(nowURL === '/info/service_user'){
+    if(nowURL === '/report/service'){
         $(document).find('.UL2').hide();
         $(document).find(".table2").addClass('cur').siblings().removeClass('cur');
     }
-    if(nowURL === '/info/history'){
+    if(nowURL === '/report/history'){
         $(document).find('.UL2').hide();
         $(document).find(".table3").addClass('cur').siblings().removeClass('cur');
     }

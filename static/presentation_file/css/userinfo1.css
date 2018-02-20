@@ -1,0 +1,11 @@
+.report-summary{
+    text-align: center;
+}
+#main, #main2{
+    height: 400px;
+}
+.overcome{
+    text-align: center;
+    position: relative;
+    top: -70px;
+}
