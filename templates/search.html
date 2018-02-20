@@ -5,12 +5,12 @@
 
 {% block nav %}
     <li class="active">
-        <a href="/info/search">
+        <a href="/report/search">
             <i class="fa fa-search-minus"></i> <span>查询服务</span>
         </a>
     </li>
     <li class="active">
-        <a href="/info/service">
+        <a href="/report/service">
             <i class="fa fa-search-minus"></i> <span>报告服务</span>
         </a>
     </li>
@@ -24,7 +24,7 @@
                     查询表单
                 </header>
                 <div class="panel-body">
-                  <form class="form-inline" role="form" action="/info/search_info" method="get" accept-charset="UTF-8">
+                  <form class="form-inline" role="form" action="/report/search_info" method="get" accept-charset="UTF-8">
                       <div class="form-group">
                           <label class="sr-only" for="id">身份证号</label>
                           <input type="text" class="form-control" id="id" placeholder="身份证号" name="idcard">
@@ -58,7 +58,7 @@
             <div class="panel">
                 <header class="panel-heading">
                     查询结果
-                    <a class="btn btn-success btn-sm pull-right" href="/info/report/{{ res.report_id }}">查看报告</a>
+                    <a class="btn btn-success btn-sm pull-right" href="/report/report/{{ res.report_id }}">查看报告</a>
                 </header>
                 <div class="panel-body table-responsive">
                     <table class="table table-hover">
