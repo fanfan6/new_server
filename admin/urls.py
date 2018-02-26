@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^report/', include('search_info.urls')),
     url(r'^accounts/', include('login.urls')),
     url(r'^count/', include('search_count.urls')),
+    url(r'^user_info/', include('user_info.urls')),
     url(r'', include('login.urls')),
 ]

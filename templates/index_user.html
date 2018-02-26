@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    天启-客户画像
+{% endblock %}
+{% block css %}
+    <link href="/static/user_info_file/css/index_info.css">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading head">
+                    <h4>客户画像</h4>
+                </header>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel-body">
+                <form class="form-inline" role="form" action="/user_info/index_info" method="get" accept-charset="UTF-8">
+                    <div class="form-group row">
+                        <div class="col-lg-3" style="height: 33px; line-height: 33px; width: 100px; text-align: center;">客户特征</div>
+                        <div class="col-lg-3">
+                            <label class="sr-only" for="option"></label>
+                                <select class="form-control" id="option" name="option" style="width: 100px;">
+                                    <option value="sex" selected="selected">性别</option>
+                                    <option value="age">年龄</option>
+                                    <option value="edu">学历</option>
+                                    <option value="occ">职业</option>
+                                    <option value="origin">籍贯</option>
+                                </select>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="搜索" >
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <a type="button" href="/user_info/comp_info" class="btn btn-info">资产包对比</a>
+        </div>
+    {% block count_with %}
+    {% endblock %}
+    </div>
+{% endblock %}
+{% block js_file %}
+    <script src="/static/user_info_file/js/index_info.js"></script>
+{% endblock %}

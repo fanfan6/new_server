@@ -114,18 +114,18 @@
                         </a>
                     </li>
                     <li class="active table5">
-                        <a href="/statistics/index">
+                        <a href="/user_info/index">
                             <i class="fa fa-search-minus"></i> <span>统计报表</span>
                         </a>
                             <ul class="UL2 sidebar-menu">
-                                <li class="active" style="font-size: smaller; margin-left: 50px;">
-                                    <a href="/statistics/index">客户画像</a>
+                                <li class="active menu2">
+                                    <a href="/user_info/index">客户画像</a>
                                 </li>
-                                <li class="active" style="font-size: smaller; margin-left: 50px;">
-                                    <a href="/statistics/app_pass">申请通过</a>
+                                <li class="active menu2">
+                                    <a href="/user_info/app_pass">申请通过</a>
                                 </li>
-                                <li class="active" style="font-size: smaller; margin-left: 50px;">
-                                    <a href="/statistics/mod_grade">模型评分</a>
+                                <li class="active menu2">
+                                    <a href="/user_info/mod_grade">模型评分</a>
                                 </li>
                             </ul>
                     </li>
@@ -146,6 +146,8 @@
     <script src="{% static 'js/Director/app.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/plugins/bs-datetimepicker/bootstrap-datetimepicker.min.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/base.js' %}" type="application/javascript"></script>
+    {% block js_file %}
+    {% endblock %}
 {#<script>#}
 {#    $(document).ready(function () {#}
 {#        $(function () {#}
