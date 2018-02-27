@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'online',
         'USER': 'root',
         'PASSWORD': 'mysql',
-        'HOST': '127.0.0.1',
+        'HOST': '127.0.0.2',
         'PORT': '3306',
     }
 }
