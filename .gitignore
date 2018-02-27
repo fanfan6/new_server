@@ -103,3 +103,7 @@ ENV/
 # .idea
 .idea
 .idea/
+
+# settings
+admin/settings.py
+admin/settings.pyc
