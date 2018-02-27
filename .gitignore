@@ -105,5 +105,7 @@ ENV/
 .idea/
 
 # settings
+admin
+admin/
 /admin/settings.py
 /admin/settings.pyc
