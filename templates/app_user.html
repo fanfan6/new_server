@@ -28,9 +28,12 @@
         <div class="panel panel-default col-md-12">
         <div class="panel-body">
             <section class="panel">
+                <header class="panel-heading" style="text-align: center">
+                    <h4>申请通过量统计表</h4>
+                </header>
                 <header class="panel-heading tab-bg-dark-navy-blue tab-right row">
                     <div class="col-lg-6">
-                        <form class="form-inline" role="form" action="/statistics/static_info?option=sex&" method="get" accept-charset="UTF-8">
+                        <form class="form-inline" role="form" action="/user_info/app_pass" method="get" accept-charset="UTF-8">
                             <label class="sr-only" for="service"></label>
                             <select class="form-control" id="service" name="zichanbao" style="width: 100px">
                                 <option value="all">ALL</option>
@@ -89,6 +92,9 @@
         <div class="panel panel-default col-md-12">
         <div class="panel-body">
             <section class="panel">
+                <header class="panel-heading" style="text-align: center">
+                    <h4>申请通过量统计图</h4>
+                </header>
                 <div id="mainh" style="width: auto;height:400px;"></div>
                     <script src="/static/js/echarts.min.js"></script>
                     <script src="/static/js/macarons.js"></script>

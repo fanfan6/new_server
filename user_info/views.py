@@ -143,6 +143,58 @@ def sex(request):
     return JsonResponse(data)
 
 
+def age(request):
+    app_id = 100256
+    _time = GetDate()
+    # 性别统计
+    try:
+        once_zichanbao = request.GET['zichanbao']
+    except:
+        once_zichanbao = 'all'
+    # 过去的12天
+    res_day = []
+    for index, each in enumerate(_time.get_day()[:-1]):
+        day_start_time = int(time.mktime(time.strptime(_time.get_day()[index + 1], "%Y-%m-%d")))
+        day_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
+        res = models.UserInfoForStatistics.objects.filter(app_id=app_id,
+                                                          create_time__range=(day_start_time, day_end_time))
+
+        # 统计年龄
+        res_age = [0, 0, 0, 0, 0, 0, 0]
+        res_data = []
+        for i in res:
+            age = int(time.localtime().tm_year) - int(i.id_card[6:10])
+            if 18 <= age <= 22:
+                res_age[0] += 1
+            elif 23 <= age <= 27:
+                res_age[1] += 1
+            elif 28 <= age <= 32:
+                res_age[2] += 1
+            elif 33 <= age <= 37:
+                res_age[3] += 1
+            elif 38 <= age <= 42:
+                res_age[4] += 1
+            elif 43 <= age <= 47:
+                res_age[5] += 1
+            else:
+                res_age[6] += 1
+        res_data.append({
+            'source': 'all',
+            'option': ['18-22', '23-27', '28-32', '33-37', '38-42', '43-47', '47及以上'],
+            'count': res_age,
+            'sum': sum(res_age)
+        })
+        res_day.append({'time': time.strftime('%Y-%m-%d', time.localtime(day_end_time)), 'data': res_data})
+    data = {
+        'res_day': res_day,
+    }
+    print(data)
+    return JsonResponse(data)
+
+
+def age_info(request):
+    return render(request, 'user_age_info.html', {})
+
 def comp_info(request):
     return render(request, 'comp_info.html', {})
 
@@ -157,9 +209,9 @@ def count_number(start_time, end_time):
         )
     )
     if int(all_num) == 0:
-        res = [time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(end_time)), 0, 0, 0]
+        res = [time.strftime("%Y-%m-%d", time.localtime(end_time)), 0, 0, 0]
     else:
-        res = [time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(end_time)), all_num,
+        res = [time.strftime("%Y-%m-%d", time.localtime(end_time)), all_num,
                pass_num, (round(pass_num/float(all_num), 2) * 100)]
     return res
 
@@ -167,10 +219,10 @@ def app_pass(request):
     app_id = 100256
     _time = GetDate()
 
-    # 申请量，通过量，通过率
-    res_hour = []
-    for index, j in enumerate(_time.get_hour()[:-1]):
-        res_hour.append(count_number(_time.get_hour()[index + 1], j))
+    # # 申请量，通过量，通过率
+    # res_hour = []
+    # for index, j in enumerate(_time.get_hour()[:-1]):
+    #     res_hour.append(count_number(_time.get_hour()[index + 1], j))
 
     # 过去的12天
     res_day = []
@@ -179,21 +231,21 @@ def app_pass(request):
         day_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
         res_day.append(count_number(day_start_time, day_end_time))
 
-    # 过去的12周
-    res_week = []
-    for w_each in _time.get_week():
-        week_start_time = int(time.mktime(time.strptime(w_each[-1], "%Y-%m-%d")))
-        week_end_time = int(time.mktime(time.strptime(w_each[0], "%Y-%m-%d")))
-        res_week.append(count_number(week_start_time, week_end_time))
-
-    # 过去的12个月
-    res_mon = []
-    for index, each in enumerate(_time.get_mon()[:-1]):
-        mon_start_time = int(time.mktime(time.strptime(_time.get_mon()[index + 1], "%Y-%m-%d")))
-        mon_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
-        res_mon.append(count_number(mon_start_time, mon_end_time))
-    return render(request, 'app_user.html', {'res_hour': res_hour, 'res_day': res_day,
-                                             'res_week': res_week, 'res_mon': res_mon})
+    # # 过去的12周
+    # res_week = []
+    # for w_each in _time.get_week():
+    #     week_start_time = int(time.mktime(time.strptime(w_each[-1], "%Y-%m-%d")))
+    #     week_end_time = int(time.mktime(time.strptime(w_each[0], "%Y-%m-%d")))
+    #     res_week.append(count_number(week_start_time, week_end_time))
+    #
+    # # 过去的12个月
+    # res_mon = []
+    # for index, each in enumerate(_time.get_mon()[:-1]):
+    #     mon_start_time = int(time.mktime(time.strptime(_time.get_mon()[index + 1], "%Y-%m-%d")))
+    #     mon_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
+    #     res_mon.append(count_number(mon_start_time, mon_end_time))
+    # return render(request, 'app_user.html', {'res_hour': res_hour, 'res_day': res_day, 'res_week': res_week, 'res_mon': res_mon})
+    return render(request, 'app_user.html', {'res_day': res_day})
 
 
 
@@ -212,6 +264,7 @@ def not_pass_content(start_time, end_time):
     )
     all_num = len(models.ModelRunningRecord.objects.filter(created_time__range=(start_time, end_time)))
     return data, all_num
+
 
 # 模型评分
 def mod_grade(request):

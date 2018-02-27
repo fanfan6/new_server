@@ -20,27 +20,22 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel-body">
-{#                <form class="form-inline" role="form" action="/user_info/index_info" method="get" accept-charset="UTF-8">#}
+                <form class="form-inline" role="form" action="/user_info/index_info" method="get" accept-charset="UTF-8">
                     <div class="form-group row">
                         <div class="col-lg-3" style="height: 33px; line-height: 33px; width: 100px; text-align: center;">客户特征</div>
-                        <div class="col-lg-9">
-                            <a href="/user_info/index_info"><button>性别</button></a>
-                            <a href="/user_info/index_age"><button>年龄</button></a>
-                            <a href="/user_info/index_info"><button>学历</button></a>
-                            <a href="/user_info/index_info"><button>职业</button></a>
-                            <a href="/user_info/index_info"><button>籍贯</button></a>
- {% comment %}                           <label class="sr-only" for="option"></label>
+                        <div class="col-lg-3">
+                            <label class="sr-only" for="option"></label>
                                 <select class="form-control" id="option" name="option" style="width: 100px;">
-                                    <option value="sex" selected="selected">性别</option>
-                                    <option value="age">年龄</option>
+                                    <option value="sex">性别</option>
+                                    <option value="age" selected="selected">年龄</option>
                                     <option value="edu">学历</option>
                                     <option value="occ">职业</option>
                                     <option value="origin">籍贯</option>
-                                </select>{% endcomment %}
+                                </select>
                         </div>
                     </div>
-{#                    <input type="submit" class="btn btn-success" value="搜索" >#}
-{#                </form>#}
+                    <input type="submit" class="btn btn-success" value="搜索" >
+                </form>
             </div>
         </div>
         <div class="col-md-4">
