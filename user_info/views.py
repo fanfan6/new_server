@@ -134,7 +134,6 @@ def sex(request):
             list_day_2.append(i.get('data')[0].get('count')[1])
         except:
             list_day_2.append(0)
-    print(list_day_2)
     data = {
         'res_day': res_day,
         'list_day_1': list_day_1,
