@@ -192,7 +192,7 @@ def app_pass(request):
         mon_start_time = int(time.mktime(time.strptime(_time.get_mon()[index + 1], "%Y-%m-%d")))
         mon_end_time = int(time.mktime(time.strptime(each, "%Y-%m-%d")))
         res_mon.append(count_number(mon_start_time, mon_end_time))
-    return render(request, 'app_pass.html', {'res_hour': res_hour, 'res_day': res_day,
+    return render(request, 'app_user.html', {'res_hour': res_hour, 'res_day': res_day,
                                              'res_week': res_week, 'res_mon': res_mon})
 
 
@@ -302,12 +302,18 @@ def mod_grade(request):
                 {'module': 'v2', 'test_data': [0.1, 0.01, 0.02, 0.04, 0.08, 0.13, 0.28, 0.42]},
                 {'module': 'v1', 'test_data': [553.22, 385.0, 443.6, 505.0, 554.0, 602.0, 651.0, 692.0]}
                 ]
-            return render(request, 'mod_grade.html', {'response_day': response_day,
+            return render(request, 'mod_user.html', {'response_day': response_day,
                                                       'option': count_basis,
                                                       'res_test': aa})
         else:
-            return render(request, 'mod_grade.html', {'option': count_basis})
+            return render(request, 'mod_user.html', {'option': count_basis})
 
+
+def mod_info(request):
+    return render(request, 'mod_grade.html', {})
+
+def app_info(request):
+    return render(request, 'app_pass.html', {})
 
     #     alist_day, pro_list_day, end_time_day = not_pass_content(day_start_time, day_end_time)
     #     res_day.append([res, end_time])
