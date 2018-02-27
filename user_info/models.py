@@ -31,7 +31,6 @@ class ModelFeatureRecord(models.Model):
     model_running_record_id = models.BigIntegerField()
     model_feature_id = models.IntegerField()
     created_time = models.BigIntegerField()
-    muser = models.ForeignKey('UserInfoForStatistics')
 
     class Meta:
         managed = False
@@ -44,7 +43,6 @@ class ModelFeatureVectorRecord(models.Model):
     module = models.CharField(max_length=32)
     feature_vector = models.TextField(blank=True, null=True)
     created_time = models.BigIntegerField()
-    vuser = models.ForeignKey('UserInfoForStatistics')
 
     class Meta:
         managed = False
@@ -60,7 +58,6 @@ class ModelRunningRecord(models.Model):
     score = models.FloatField()
     source = models.CharField(max_length=16)
     created_time = models.BigIntegerField()
-    ruser = models.ForeignKey('UserInfoForStatistics')
 
     class Meta:
         managed = False
@@ -71,7 +68,6 @@ class ModelFeature(models.Model):
     model_feature_id = models.BigAutoField(primary_key=True)
     description = models.CharField(max_length=128)
     created_time = models.BigIntegerField()
-    fuser = models.ForeignKey('UserInfoForStatistics')
 
     class Meta:
         managed = False
